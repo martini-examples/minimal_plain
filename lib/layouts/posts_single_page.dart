@@ -8,8 +8,14 @@ class PostsSinglePage extends Component {
   String render() => '''
 <html>
   ${comp(new HeadComp(page))}
-  <body>
-    ${page.content}
+  <body>    
+    ${comp(new NavBarComp(page.site, menu: menu))}
+    
+    <main>
+      <article>
+        ${page.content}
+      </article>
+    </main>
   </body>
 </html>
   ''';

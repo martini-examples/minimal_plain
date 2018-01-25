@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:jaguar/jaguar.dart';
 import 'package:jaguar_martini/jaguar_martini.dart';
 import 'package:jaguar_martini/collectors/dir.dart';
+import 'package:jaguar_hotreload/jaguar_hotreload.dart';
 
 import 'package:minimal/minimal.dart';
 
@@ -14,10 +15,16 @@ const siteMeta = const SiteMetaData(
     baseURL: 'http://localhost:8000', copyright: '&copy; All rights reserved.');
 
 main(List<String> arguments) async {
+  final reloader = new HotReloader();
+  reloader.addPath('lib/');
+  reloader.addPath('bin/main.dart');
+  await reloader.go();
+
   final postCollector = new DirPostCollector(new Directory('./content'));
   final processor =
       new Processor(siteMeta, new DefaultWriter(), siteWriter: new SiteLayout())
         ..addShortcode(const GistShortCode())
+        ..addShortcode(const AsciinemaShortCode())
         ..add(postCollector)
         ..start();
 

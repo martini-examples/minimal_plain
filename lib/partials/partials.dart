@@ -10,4 +10,4 @@ part 'sidebar.dart';
 
 part 'posts_list_item.dart';
 
-const List<String> dateFormat = const [DD, ' ,', d, ' ', MM, ' ', yyyy];
+const List<String> dateFormat = const [DD, ', ', d, ' ', MM, ' ', yyyy];

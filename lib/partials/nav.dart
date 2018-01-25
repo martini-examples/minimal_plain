@@ -33,10 +33,8 @@ class NavBarComp extends Component {
   String render() => '''
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
-        <div class="navbar-header"></div>
-
         <div class="collapse navbar-collapse">
-          <h1 class="nav navbar-nav">${page.site.meta.title}</h1>
+          <h1 class="nav navbar-nav"><a href="/">${page.site.meta.title}</a></h1>
           ${renderMenu()}
         </div>
       </div>

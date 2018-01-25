@@ -29,30 +29,18 @@ class PostsIndexPage extends Component {
   ${comp(new HeadComp(page))}
 
   <body>
-    <header class="site">
-      <div class="title"><a href="${site.meta.baseURL}">${site.meta.title}</a></div>
-    </header>
+    ${comp(new NavBarComp(page.site, menu: menu))}
 
-    <div class="container site">
-
-    <div class="list">
-      <header class="list-title"><h1>$heading</h1></header>
-
+    <main>
       <div class="row">
         <div class="col-sm-9">
           <div class="articles">
             ${range(paginationInfo.start, paginationInfo.end,
             (i) => new PostsListItemPartial(page.pages[i]).render())}
           </div>
-
-          <!-- TODO {{ partial "pagination.html" . }} -->
-        </div>
-        <div class="col-sm-3 sidebar">
-          ${comp(new SidebarComp(page))}
         </div>
       </div>
-    </div>
-    <!-- TODO {{ partial "default_foot.html" . }} -->
+    </main>
   </body>
 </html>
     ''';

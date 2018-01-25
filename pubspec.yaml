@@ -11,7 +11,8 @@ dependencies:
   jaguar_martini: # ^1.4.1
     path: ../jaguar_martini
   stencil:
-  date_format: ^1.0.2
+  date_format: ^1.0.4
+  jaguar_hotreload: ^0.2.3
 
 dev_dependencies:
   test: ^0.12.0
